@@ -1,0 +1,195 @@
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  pl-lg-8">
+                <h3 class="scissors">Personnaliser l’apparence de votre boutique!</h3>
+                <p class="mb-5 ">Personnalisez l’apparence de votre magasin pour s’adapter à vos besoins. Donnez à votre magasin l’apparence exacte qui reflète votre marque.</p>
+         
+              </div>
+           
+            
+      
+        </div>
+      <div class="row">
+        <div class="col-lg-5 pl-lg-5 scroll">
+            <h5 class="scissors">Personnaliser l’apparence de votre boutique!</h5>
+            <p class="mb-6 ">Personnalisez l’apparence de votre magasin pour s’adapter à vos besoins. Donnez à votre magasin l’apparence exacte qui reflète votre marque.</p>
+          
+           
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              [(ngModel)]="tailles">
+              <div *ngFor="let season of seasons ;">
+              <mat-radio-button  class="scissors"   [value]="season.taille">
+            
+            {{season.taille}}
+                 
+       
+                
+                
+         
+              </mat-radio-button>
+              <p>    {{season.discription}}</p>
+            </div>
+             
+            </mat-radio-group>
+   
+             
+                  <h5 class="scissors">Conserver les proportions</h5>
+                  <p class="mb-6 ">L'orientation paysage est préférable pour les produits avec des images horizontales. L'orientation portrait est destinée aux images verticales. Le carré est destiné aux images des proportions égales, ce qui est idéal pour les petites marchandises.</p>
+                
+                
+                  <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="example-radio-group"
+                    [(ngModel)]="l">
+                    <div *ngFor="let season of seasonss ;">
+                    <mat-radio-button  class="scissors"   [value]="season.taille">
+                  
+                  {{season.taille}}
+                        
+                   </mat-radio-button>
+              
+                  </div>
+                  
+                  </mat-radio-group>
+                  <br>  <br>
+                  
+                    
+                </div>
+              
+              
+          
+          
+     
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Large'&& l=='Carré 1:1' ">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px"  src="assets/images/Large.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+     
+        <div class="col-lg-6 mb-5 mb-lg-0 " *ngIf="tailles=='Large' && l=='Paysage de 4:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/L 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Large' &&  l=='Paysage de 2:3' ">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px"  src="assets/images/L2.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Large' && l=='Portrait 3:4'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/L 3.4.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Large' && l=='Portrait 2:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px"  src="assets/images/L 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Moyen'&& l=='Carré 1:1'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/M 1.1.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Moyen'&& l=='Paysage de 4:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/M 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Moyen'&& l=='Paysage de 2:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/M 2.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Moyen'&& l=='Portrait 3:4'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/M 3.4.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Moyen'&& l=='Portrait 2:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/M 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+     
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Petite'&& l=='Carré 1:1'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px"  src="assets/images/P 1.1.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Petite'&& l=='Paysage de 4:3'">
+          <div class="img-years">
+            <img width="500px"  src="assets/images/P 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Petite'&& l=='Paysage de 2:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/P2.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Petite'&& l=='Portrait 3:4'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px" src="assets/images/P 3.4.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0" *ngIf="tailles=='Petite'&& l=='Portrait 2:3'">
+          <div class="img-years">
+            <br><br><br><br><br><br>
+            <img width="500px"  src="assets/images/P 4.3.PNG" alt="Image" class="img-fluid">
+            
+          </div>
+  
+        </div>
+
+      </div>
+
+
+
+
+   
+</div>
+</div>

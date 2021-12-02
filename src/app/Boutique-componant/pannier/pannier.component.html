@@ -1,0 +1,35 @@
+ 
+
+<div mat-dialog-content  style="background-image:url('../../../assets/login11.jpg');">
+  <p mat-dialog-title class ="wordCarousel">Your Carts</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Delete</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts ;let i=index;">
+        <th scope="row"><img src="{{cart.pictureUrl}}" class="img-thumbnail" style="width: 100px;"></th>
+        <td>{{cart.name}}</td>
+        <td>{{cart.price}}</td>
+        <td> <div class="col-5 padding-0"  style="margin-left: 15px">
+          <input type="number" min="0" max="10" class="form-control" value={{cart.quantity}} [(ngModel)]="cart.quantity"  />
+        </div></td>
+        <td><span class="material-icons" (click)="deleteCart(cart.id)"
+            style="cursor: pointer; color: #e15f41;">delete_forever</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <button mat-button style="background-color:rgb(230, 118, 26);" class="btn-block" cdkFocusInitial (click)="onNoClick()">Close</button>
+  <button class="btn btn-block"  style="background-color:rgb(6, 165, 177);"  type="submit" (click)="edit(carts)"> Save All</button>
+   
+
+
+</div>

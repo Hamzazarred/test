@@ -1,0 +1,72 @@
+
+ 
+
+<div mat-dialog-content>
+  <p mat-dialog-title class ="wordCarousel">Add Your Category</p>
+
+
+  <form
+ 
+  name="form"
+
+  #f="ngForm"
+  novalidate
+>
+  <div class="form-group">
+    <label for="Category">Category Name</label><br>
+    <small mat-dialog-content>*You can add a subcategory to this category.</small>
+    <input
+      type="text"
+      class="form-control"
+      name="Category"
+      [(ngModel)]="form.Category"
+      required
+      minlength="2"
+      maxlength="20"
+      #Category="ngModel"
+    />
+    <div class="dang" *ngIf="f.submitted && Category.invalid">
+      <small *ngIf="Category.errors.required">Category is required</small>
+      <small *ngIf="Category.errors.minlength">
+        *Category must be at least 2 characters
+      </small>
+      <div *ngIf="Category.errors.maxlength">
+        Category must be at most 20 characters
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div> -->
+  <div class="form-group">
+  
+    <button class="btn btn-primary btn-block"  (click)= " addCategoryInvalid()"  type="submit" *ngIf="!Category.valid"> Save Category</button>
+   
+  
+   
+      
+  </div>
+  <button class="btn btn-primary btn-block" (click)= "addCategory()"   type="submit" *ngIf="Category.valid"> Save Category</button>
+   
+
+</form>
+<button mat-button  class="btn-block" (click)=" onNoClick()" cdkFocusInitial>Close</button>
+    
+
+</div>

@@ -1,0 +1,59 @@
+<br><br><br>
+
+
+<div fxLayout="row" fxFlexFill fxLayoutAlign="space-evenly center" style="background-image:url('../../../assets/login11.jpg');
+
+
+">
+<p class="popout">
+	<span>Créez et développez</span><br>
+	<span>votre business   </span>
+   <br>
+   <span >   Grâce BouTiKi</span> <br>
+	<span>Start     New </span>
+
+	
+
+</p>
+    <div fxLayout="column" >
+   
+        <div class=" mat-elevation-z3">
+            <mat-card>
+                <mat-card-title>User login
+                    <a class="redirect" [routerLink]="['/sigup']">Register an account</a>
+                </mat-card-title>
+                <mat-card-content>
+                            <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="userForm" (ngSubmit)="login()">
+                        <mat-form-field class="full-width">
+                          <input type="email" id="email" class="input" placeholder="Please enter your email"
+                                 formControlName="email" required matInput>
+                        </mat-form-field>
+                        <div *ngIf="formErrors.email" class="help is-danger">
+                            {{ formErrors.email }}
+                        </div>
+                        <mat-form-field class="full-width">
+                            <input type="password" id="password" class="input" placeholder="please  enter your password"
+                            formControlName="password" required matInput>
+                        </mat-form-field>
+                        <div *ngIf="formErrors.password" class="help is-danger">
+                            {{ formErrors.password }}
+                        </div>
+                        <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid" (click)="login()">log in</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+            
+        </div>
+    </div>
+    
+   
+         
+            <div class="boutique" fxLayout="row">
+            
+                <h2 class="rotate">Your web sites</h2>
+                <h2 class="mav">Get Started</h2>
+               
+              </div>
+        
+
+</div>

@@ -1,0 +1,196 @@
+<header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed scrolling-navbar" style="background-color: rgba(9, 131, 121, 0.568);">
+      <div class="container-fluid">
+
+
+       
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+          <!-- Right -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#!" class="nav-link navbar-link-2 waves-effect">
+                <span class="badge badge-pill orange badge">$0</span>
+                <i class="fas fa-shopping-cart pl-0"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                <i class="united kingdom flag m-0"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#!">Action</a>
+                <a class="dropdown-item" href="#!">Another action</a>
+                <a class="dropdown-item" href="#!">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#!" class="nav-link waves-effect">
+                Shop
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!" class="nav-link waves-effect">
+                Contact
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!" class="nav-link waves-effect">
+                Sign in
+              </a>
+            </li>
+            <li class="nav-item pl-2 mb-2 mb-md-0">
+              <a href="#!" type="button"
+                class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign
+                up</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Links -->
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+   
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+
+    <div class="container" *ngFor="let order of productOrders let i = index;">
+
+      <!--Section: Block Content-->
+      <div class="mb-5">
+
+        <div class="row">
+          <div class="col-md-6 mb-4 mb-md-0">
+
+            <div id="mdb-lightbox-ui"></div>
+
+            <div class="mdb-lightbox">
+
+              <div class="row  ">
+
+                <div class="col-12 mb-0" >
+                  <figure class="view overlay rounded z-depth-1 main-img" style="max-height: 450px;">
+                    <a src={{order.product.pictureUrl}} 
+                      >
+                      <img src={{order.product.pictureUrl}} 
+                        class="img-fluid z-depth-1" style="margin-top: -40px;">
+                    </a>
+                  </figure>
+          
+                </div>
+               
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <h5> {{order.product.name}}</h5>
+           
+            <p><span class="mr-1"><strong>$ {{order.product.price}}</strong></span></p>
+            <p class="pt-1"> {{order.product.description}}.</p>
+            <div class="table-responsive">
+              <table class="table table-sm table-borderless mb-0">
+                <tbody *ngFor="let y of disc">
+                  <tr >
+                    <th class="pl-0 w-25" scope="row"><strong>{{y.title}}</strong></th>
+                    <td>{{y.message}}</td>
+                  </tr>
+                  
+                 
+                </tbody>
+              </table>
+            </div>
+          
+            <hr>
+            <div class="table-responsive mb-2">
+              <table class="table table-sm table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="pl-0 pb-0 w-25">Quantity</td>
+                    <td class="pb-0">Select size</td>
+                  </tr>
+                  <tr>
+                    <td class="pl-0">
+                      <div class="def-number-input number-input safari_only mb-0">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                          class="minus"></button>
+                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                          class="plus"></button>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="mt-1" *ngFor="let x of taille">
+                        <div class="form-check form-check-inline pl-0">
+                          <input type="radio" class="form-check-input" id="small" name="materialExampleRadios" checked>
+                          <label class="form-check-label small text-uppercase card-link-secondary"
+                            for="small">{{x.size}}</label>
+                        </div>
+                       
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <h5>Color 
+            available</h5>
+                <div class="d-inline p-2 bg" *ngFor="let i of colorList ;">
+        
+        
+        
+                    <div id="cercle"  style="display:inline-flex!important;" [style.background]="i.code"></div>
+             
+                    
+                    
+                    </div>
+               <br>
+         
+               <div class="button" *ngIf="user">
+                <div *ngIf="!isProductSelected(order.product)">
+                  <button id="addToCartBtn" class="btn-block" (click)="addToCart(order,  user.id)">Add To Cart
+                  </button>
+                </div>
+                <div *ngIf="isProductSelected(order.product)">
+                  <button class="btn btn-danger btn-block active" (click)="removeFromCart(order,  user.id)">Remove From Cart
+                  </button>
+                </div>
+              </div>
+    
+              <div *ngIf="!user">
+                <p><strong>Please login to buy product</strong> <button type="button" class="btn btn-link"
+                    (click)="login()">Login</button> </p>
+              </div>
+          </div>
+          
+        </div>
+
+    </div>
+      <!--Section: Block Content-->
+
+   
+      
+
+
+    </div>
+   
+ 
+  <!--Main layout-->
+

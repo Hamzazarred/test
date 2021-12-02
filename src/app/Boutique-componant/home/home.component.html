@@ -1,0 +1,349 @@
+
+  
+  
+  <!-- <ngb-carousel [style.width.px]="40" >
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img  [style.height.px]="400" src="https://www.bioalaune.com/img/article/38214-20-plus-belles-citations-amour.png" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption" >
+        <h3>Title Goes Here</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper" >
+        <img src="https://www.bioalaune.com/img/article/38214-20-plus-belles-citations-amour.png" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+        <h3>Title Goes Here</h3>
+        <p>Consectetur tortor volutpat pretium.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel> -->
+   <!-- <ngb-carousel [style.width.px]="40" >
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img  [style.height.px]="400" src="https://www.bioalaune.com/img/article/38214-20-plus-belles-citations-amour.png" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption" >
+        <h3>Title Goes Here</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper" >
+        <img src="https://www.bioalaune.com/img/article/38214-20-plus-belles-citations-amour.png" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+        <h3>Title Goes Here</h3>
+        <p>Consectetur tortor volutpat pretium.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel> -->
+  <!-- Main Navigation -->
+  <!-- Main Navigation -->
+
+<!-- Main Navigation -->
+
+          
+
+
+<div class="contact-box" style="background-color: rgb(230, 140, 38);">
+  <div class="col-sm-12">
+      <div class="contactinfo" >
+          <ul class="nav nav-pills">
+              <li><a href="#" style="color : rgb(0, 0, 0);"><i class="fa fa-phone">+216{{boutique.numero}}</i></a></li>
+            <div style="margin-left: 100px;"></div>
+              <li><a href="#" style="color : rgb(5, 5, 5);"><i class="fa fa-envelope"></i> {{boutique.boutiquename}}@gmail.com</a></li>
+              <div style="margin-left:60%;"></div>
+              <li><a href="#" style="color : rgb(5, 5, 5);"><i  class="fa fa-home"></i> {{boutique.ville}}</a></li>
+              
+
+          </ul>
+      </div>
+  </div>
+</div>
+
+<header>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light  fixed " style="background-color: rgb(3, 68, 73);">
+    <div class="container-fluid">
+
+      <img src="./assets/logo.codetok.png" width="36px">
+      <h1 class="logo" >
+        {{boutique.nomdomaine}}.
+          <span style="font-size: 12px;">com</span>
+      </h1>
+
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Right -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" (click)="open()">
+            <a  class="nav-link navbar-link-2 waves-effect">
+              <span class="badge badge-pill orange">${{total}}</span>
+              <i class="fas fa-shopping-cart pl-0 "  style="color:white; font-size: 20px;"></i>
+            </a>
+          </li>
+        
+          <li class="nav-item" >
+            <a class="nav-link waves-effect" style="color:white; "  (click)="shop()">
+              Shop
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!" class="nav-link waves-effect" style="color:white; ">
+           All 
+            </a>
+          </li>
+          <li class="nav-item pl-2 mb-2 mb-md-0" *ngIf="!currentUser">
+            <a  type="button" (click)="login()"
+              class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" style="color:white; ">Sign
+              In </a>
+          </li>
+          <li class="nav-item pl-2 mb-2 mb-md-0" *ngIf="!currentUser">
+            <a  type="button" (click)="register()"
+              class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" style="color:white; ">Sign
+              up </a>
+          </li>
+          <li class="nav-item pl-2 mb-2 mb-md-0" *ngIf="currentUser">
+            <a  type="button" (click)="logout()"
+              class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light" style="color:white; ">LogOut <i class="fas fa-sign-in-alt"></i></a>
+          </li>
+          
+        </ul>
+
+      </div>
+      <!-- Links -->
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  
+  
+
+</header>
+<!-- Main Navigation -->
+
+
+<ngb-carousel [style.width.px]="1800" >
+  <ng-template ngbSlide *ngFor="let s of SL;"  >
+    <div class="picsum-img-wrapper">
+      <img  [style.height.px]="600" [src]="s.image"
+      
+      alt="Angular Carousel 1">
+     
+    </div>
+    <div class="carousel-caption" >
+      <h3 style="color: rgba(255, 88, 22, 0.808);font-size: 80px;">{{s.titre}}</h3>
+      <p  style="color: rgb(255, 255, 255);font-size: 30px;">{{s.description}}.</p>
+    </div>
+  </ng-template>
+
+</ngb-carousel>
+
+<!-- Main Navigation -->
+<div *ngFor="let c of slidess;  let i =index" > 
+  <div *ngIf="ver(i)" style="font-size: 30px; text-align: center ; color: rgb(255, 112, 29);font-family:fantasy;">
+  {{tags[i].name}}
+</div>
+
+  <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+  [animation]="'slide'" style="width: 50% !important" *ngIf="ver(i)" >
+ 
+<mdb-carousel-item *ngFor="let item of c;" >
+
+<div class="col-md-3 pb-2" *ngFor="let card of item;" >
+ 
+    <div class="product-grid5">
+        <div class="product-image5" >
+            <a href="#">
+                <img class="pic-1" style="height: 300px;"  [src]="card.pictureUrl">
+                <img class="pic-2"style="height: 300px;"    [src]="card.pictureUrl">
+            </a>
+            <ul class="social">
+                <li><a  data-tip="Quick View" (click)="productInfo(card.id)"><i class="fa fa-search"></i></a></li>
+              
+                <li><a  data-tip="Add to Cart"><i class="fa fa-shopping-cart" (click)="addToCart(card)"></i></a></li>
+            </ul>
+            <span class="product-new-label" *ngIf="card.n">New</span>
+            
+            <span   class="product-new-label" *ngIf="card.s">Sale</span>
+            <span class="product-discount-label" *ngIf="card.p!=0">-{{card.p}}%</span>
+            <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> SEE ALL ProductS</a>
+        </div>
+        <div class="product-content">
+          <div class="price" *ngIf="card.p!=0">
+            ${{card.newprice}}
+            <span>${{card.price}}</span>
+        </div>
+        <div class="price"  *ngIf="card.p==0">
+          ${{card.price}}
+       </div>
+            <h3 class="title"><a href="#">{{card.name}}</a></h3>
+      
+           
+          
+        
+        </div>
+    </div>
+</div>
+
+</mdb-carousel-item>
+
+
+
+</mdb-carousel>
+
+</div>
+
+
+
+
+
+
+
+
+  <!--Main layout-->
+  <main>
+    <div class="container"style="background-color: rgb(3, 68, 73);">
+
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark  lighten-3 mt-3 mb-5">
+
+        <!-- Navbar brand -->
+        <span class="navbar-brand" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;color: chocolate; "><b><u>Tags:</u></b></span>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" (click)="getAllTag(tags)" >All
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <div *ngFor="let c of slidess;  let i =index" >
+            <li  (click)="getpro(tags[i])">
+              <a class="nav-link"  >  {{tags[i].name}}</a>
+            </li>
+          
+          </div>
+          </ul>
+          <!-- Links -->
+
+         
+        </div>
+        <!-- Collapsible content -->
+
+      </nav>
+      <!--/.Navbar-->
+
+     
+
+    </div>
+  </main>
+  <div  style="font-size: 30px; text-align: center ; color: rgb(255, 112, 29);font-family:fantasy;">
+{{title}}
+  </div>
+  <!--Main layout-->
+  <section class="text-center mb-5" >
+
+    <!--Grid row-->
+    <div class="row wow fadeIn"style="margin:40px">
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-4 mb-5" *ngFor="let pro of products" >
+
+        <!--Card-->
+        <div class="product-grid5">
+          <div class="product-image5" >
+              <a href="#">
+                  <img class="pic-1" style="height: 300px;"  [src]="pro.pictureUrl">
+                  <img class="pic-2"style="height: 300px;"    [src]="pro.pictureUrl">
+              </a>
+              
+              <ul class="social">
+               
+                  <li><a  data-tip="Quick View" (click)="productInfo(pro.id)"><i class="fa fa-search"></i></a></li>
+                
+                  <li><a  data-tip="Add to Cart"><i class="fa fa-shopping-cart" (click)="addToCart(pro)"></i></a></li>
+              </ul>
+              <span class="product-new-label" *ngIf="pro.n">New</span>
+            
+              <span   class="product-new-label" *ngIf="pro.s">Sale</span>
+              <span class="product-discount-label" *ngIf="pro.p!=0">-{{pro.p}}%</span>
+            
+              <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> SEE ALL ProductS</a>
+          </div>
+          <div class="product-content">
+              <h3 class="title"><a href="#">{{pro.name}}</a></h3>
+              <div class="price" *ngIf="pro.p!=0">
+                ${{pro.newprice}}
+                <span>${{pro.price}}</span>
+            </div>
+            <div class="price"  *ngIf="pro.p==0">
+              ${{pro.price}}
+           </div>
+          </div>
+      </div>
+        <!--Card-->
+
+      </div>
+      <!--Grid column-->
+
+   
+    </div>
+    <!--Grid row-->
+
+  
+
+  </section>
+<div *ngIf="products.length==0" style="text-align: center; color: rgb(90, 90, 90); font-size: large;margin:180px">Aucun Products in this Tag</div>
+  <hr>
+  <div *ngIf="sliders.length!=0" style="font-size: 30px; text-align: center ; color: rgb(255, 112, 29);font-family:fantasy;">
+All Products
+      </div>
+  <carousel *ngIf="sliders.length!=0"
+  [images]="sliders"
+  overflowCellsLimit="50"
+  title="vv">
+
+</carousel>
+
+<button type="button"  style="color: rgb(19, 150, 190); border-color: rgb(8, 197, 255);margin: 10% 45%;border-radius: 0%;" class="btn btn-outline-primary ">Go TO SHOP<i class="fa fa-external-link" style="color: rgb(19, 150, 190);;"></i></button>
+<!-- Links -->
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+  
+    <!--/.Call to action-->
+
+
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->

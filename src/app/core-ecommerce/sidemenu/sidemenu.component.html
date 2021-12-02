@@ -1,0 +1,17 @@
+<ng-scrollbar style="height: calc(100% - 70px); background-color: rgba(75, 182, 173, 0.568); ">
+    <div fxLayout="column"  >
+        <!-- <div *ngIf="!iconOnly" fxLayoutAlign="space-around center" [style.margin]="'10px 0px'" >
+          <img width="100" [style.borderRadius]="'50%'" src="./assets/user-image.jpg">
+        </div> -->
+        
+       
+        <mat-nav-list  style="background-color: rgba(50, 132, 165, 0.938)" >
+            <mat-list-item [routerLink]="['/shop/' + idBoutique]"  routerLinkActive="router-link-active"  ><h5 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><i class="fas fa-dolly" style="margin-left: 10px;margin-right: 5px; "></i> All Category</h5> </mat-list-item>
+          </mat-nav-list>
+          
+      
+     <cdk-sidemenu-item *ngFor="let menu of menus" [vide]="vide" [menu]="menu" [iconOnly]="iconOnly"> </cdk-sidemenu-item>
+
+    </div>
+    
+</ng-scrollbar>

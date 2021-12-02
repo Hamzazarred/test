@@ -1,0 +1,176 @@
+
+<br><br><br>
+<div fxLayout="row" fxFlexFill fxLayoutAlign="space-evenly center" style="background-image:url('../../../assets/login11.jpg');
+height: 100%;
+ ">
+
+<p class="popout">
+ 
+ 
+	<span>Votre boutique en ligne est </span><br>
+	<span> presque prête avec BouTiKi </span>
+   <br>
+   
+	<span>Start new </span>
+ 
+
+</p>
+    <div fxLayout="column" >
+      <div  fxLayout="column" >
+        <span class="min">Étape {{value2}} de 4. </span>
+        <mat-progress-bar mode="determinate" value={{value}}></mat-progress-bar>
+        <span class="min">Terminer votre inscription </span>
+      
+      </div>
+        <div class=" mat-elevation-z4">
+          <mat-horizontal-stepper #stepper>
+            <mat-step [stepControl]="firstFormGroup" firstFormGroup.Invalid="Name is required.">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Nom de la boutique</ng-template>
+                <div>
+                <mat-form-field>
+                  <mat-label>Nom de la boutique</mat-label>
+                  <input matInput placeholder="Name Boutique or Shop" formControlName="boutiqueName" required>
+                </mat-form-field>
+                <p>Comment s'appelle votre boutique ?</p>
+                <p> Saisissez le nom de votre magasin tel que vous souhaitez le voir affiché à vos clients. Vous pourrez par la suite modifier le nom de votre boutique à tout moment.</p>
+           
+                </div>
+                <div>
+                  
+                  <mat-form-field>
+                    <mat-label>Pays</mat-label>
+                    <input matInput placeholder="Last name, First name" formControlName="pays" required>
+                  </mat-form-field>
+                 
+                  <mat-form-field appearance="fill">
+                    <mat-label>Devise</mat-label>
+                    <mat-select formControlName="device" >
+                      <mat-option *ngFor="let f of  Options" [(value)]="f.value">
+                        {{f.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <p>Indiquez votre pays.</p><p>Confirmez que nous avons bien détecté vos paramètres régionaux.</p>
+                  
+                </div>
+              
+                <div>
+                 
+               
+                  <button mat-button matStepperNext (click)="add()">Next</button>
+                </div>
+              </form>
+            
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Addresse de la boutique</ng-template>
+               
+                <div>
+                  <h1>Ajoutez une adresse d'entreprise pour recevoir des paiements et configurez le mode de livraison.</h1>
+                
+                  <p>Quelle est l'adresse de votre entreprise ?</p>
+                  <p>C'est l'adresse où se trouvent votre entreprise ainsi que votre boutique. Si vous n'avez pas encore d'adresse d'entreprise, veuillez saisir l'adresse à partir de laquelle vous expédierez vos commandes.</p>
+                   <mat-form-field>
+                    <mat-label>Ville</mat-label>
+                    <input matInput placeholder="Ville" formControlName="ville"
+                           required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Region</mat-label>
+                    <input matInput placeholder="Region" formControlName="region"
+                           required>
+                  </mat-form-field>
+                </div>
+                <div>             <button mat-button matStepperPrevious (click)="back()">Back</button>
+                  <button mat-button matStepperNext (click)="add()">Next</button>
+                </div>
+               
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="tFormGroup" errorMessage="Address is required.">
+              <form [formGroup]="tFormGroup">
+                <ng-template matStepLabel>Contact</ng-template>
+               
+                <div>
+                  <h1>Ajoutez le numéro de téléphone associé à votre compte.</h1>
+                
+                  
+                  <p>Vous pouvez ajouter, modifier ou supprimer les numéros de téléphone associés à votre compte à tout moment.</p>
+                   <mat-form-field>
+                    <mat-label>Numéro</mat-label>
+                    <span matPrefix>+ &nbsp;</span>
+                    <input type="tel" matInput placeholder="216 20 228 234" formControlName="phone"
+                    required>
+                    
+                  </mat-form-field>
+                 
+                </div>
+                <div>
+                  <h1>Ajoutez votre nom de domaine.</h1>
+                
+                  
+                  <p>Vous pouvez ajouter, modifier ou supprimer le nom de domaine associés à votre compte à tout moment.</p>
+                   <mat-form-field>
+                    <mat-label>Nom de domaine</mat-label>
+                    
+                    <input type="tel" matInput placeholder="BouTiqui.com" formControlName="nomdedomaine"
+                    required>
+                    
+                  </mat-form-field>
+               
+              </div>
+                <div>             <button mat-button matStepperPrevious (click)="back()">Back</button>
+                  <button mat-button matStepperNext (click)="add1()">Next</button>
+                </div>
+               
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel  [stepControl]="qFormGroup" errorMessage="Address is required.">Catégorie</ng-template>
+              <p>Parlez-nous un peu de vous.</p>
+              <form [formGroup]="qFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+               
+                <div>
+                  <h1>Catégorie de la boutique</h1>
+                
+                  
+                  <p> Choisissez l'un de nos marchés.</p>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Catégories</mat-label>
+                    <mat-select formControlName="type" >
+                      <mat-option *ngFor="let f of  Options1" [(value)]="f.value">
+                        {{f.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                 
+                </div>
+                <div>             
+                  <button mat-button matStepperPrevious (click)="back()">Back</button>
+                  <button mat-button (click)="reset() ">Confirmer</button>
+                </div>
+               
+              </form>
+              
+            </mat-step>
+          </mat-horizontal-stepper>
+         
+        
+        </div>
+    </div>
+    
+   
+         
+            <div class="boutique" fxLayout="row">
+            
+                <h2 class="rotate">Your web sites</h2>
+                <h2>Get Started</h2>
+               
+              </div>
+        
+    
+</div>
+ 

@@ -1,0 +1,72 @@
+
+ 
+
+<div mat-dialog-content>
+  <p mat-dialog-title class ="wordCarousel">Add Your Tag</p>
+
+
+  <form
+ 
+  name="form"
+
+  #f="ngForm"
+  novalidate
+>
+  <div class="form-group">
+    <label for="name">Tag Name</label><br>
+    
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      [(ngModel)]="form.name"
+      required
+      minlength="2"
+      maxlength="20"
+      #name="ngModel"
+    />
+    <div class="dang" *ngIf="f.submitted && name.invalid">
+      <small *ngIf="name.errors.required">Tag is required</small>
+      <small *ngIf="name.errors.minlength">
+        *Tag must be at least 2 characters
+      </small>
+      <div *ngIf="name.errors.maxlength">
+        Tag must be at most 20 characters
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div> -->
+  <div class="form-group">
+  
+    <button class="btn btn-primary btn-block"  (click)= " addTagInvalid()"  type="submit" *ngIf="!name.valid"> Save Tag</button>
+   
+  
+   
+      
+  </div>
+  <button class="btn btn-primary btn-block" (click)= "addTag()"   type="submit" *ngIf="name.valid"> Save Tag</button>
+   
+
+</form>
+<button mat-button  class="btn-block" (click)=" onNoClick()" cdkFocusInitial>Close</button>
+    
+
+</div>

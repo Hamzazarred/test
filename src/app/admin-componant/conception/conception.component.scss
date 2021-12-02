@@ -1,0 +1,20 @@
+.card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+text-align: left;
+  }
+.view:hover {
+-webkit-filter: brightness(150%);
+transition: all .4s ease-in-out;
+}
+.view{
+transition: all .4s ease-in-out;
+}
+.scissors{
+  font-weight:bolder
+}
+.scroll {
+	position:unset
+
+}

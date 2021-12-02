@@ -1,0 +1,39 @@
+<ng-scrollbar style="height: calc(100% - 70px);">
+    <div fxLayout="column" >
+        <!-- <div *ngIf="!iconOnly" fxLayoutAlign="space-around center" [style.margin]="'10px 0px'" >
+          <img width="100" [style.borderRadius]="'50%'" src="./assets/user-image.jpg">
+        </div> -->
+        <h3 class="wordCarousel">
+            <span>Manage your: </span>
+            <div>
+                <!-- Use classes 2,3, or 4 to match the number of words -->
+                <ul class="flip4">
+                    <li> Product<span class="material-icons">
+                        shopping_bag
+                        </span>
+                        
+                        </li>
+                    <li> Category<span class="material-icons">
+                        shopping_bag
+                        </span>
+                        </li>
+                    <li>Subcategory
+                        
+                        </li>
+             
+                </ul>
+            </div>
+        </h3>
+        <div *ngIf="iconOnly" style="height: 100px;" fxLayoutAlign="space-around center"  >
+            <img width="50" [style.borderRadius]="'50%'" src="./assets/user-image.jpg">
+        </div>
+        <div class="espace">
+            <button mat-raised-button  (click)="addCategory(idBoutique)"  > Add Category To Your Web Site<span class="material-icons esp">
+                add_business
+                </span>
+             </button></div>
+     <cdk-sidemenu-item *ngFor="let menu of menus" [vide]="vide" [menu]="menu" [iconOnly]="iconOnly"> </cdk-sidemenu-item>
+
+    </div>
+    
+</ng-scrollbar>

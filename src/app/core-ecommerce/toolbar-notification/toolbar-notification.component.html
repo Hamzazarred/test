@@ -1,0 +1,7 @@
+<div class="toolbar-notification-container">
+	<button mat-icon-button (click)="isOpen = !isOpen;" [ngClass]="[cssPrefix+'-btn']" [class.open]="isOpen">
+    	<mat-icon>shopping_cart</mat-icon>
+    	<span class="badge" *ngIf="notifications && notifications?.length !== 0">{{ notifications?.length }}</span>
+  </button>
+
+

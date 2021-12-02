@@ -1,0 +1,391 @@
+
+<div mat-dialog-content style="background-image:url('../../../assets/login11.jpg');">
+    
+  
+  
+ 
+
+    
+  <button mat-button  class="btn-block" (click)=" onNoClick()" cdkFocusInitial><mat-icon>cancel </mat-icon></button>
+  <div class="jumbotron ">
+    
+  
+    <div class="jumbotron-content">
+    
+        <h1 class="display-4 mt-4" style="text-align: center;">Add Your Product </h1>
+        <p class="lead">Through this interface, you can modify the price of the product and its name is available in colors as well as in all sizes....</p>
+       <br/>
+        <form
+   
+        name="form"
+      
+        #f="ngForm"
+        novalidate
+      ><br>
+      <div class="row">
+        <!-- name form group -->
+        <div class="form-group">
+   
+         
+          <label for="name" class="coll">Product Name</label><br>
+          <small mat-dialog-content>*It is necessary to write the name of the product.</small>
+          <input 
+          class="form-control"
+            name="name"
+            [(ngModel)]="form.name"
+            required
+            minlength="2"
+            maxlength="20"
+            type="text"
+            #name="ngModel"
+             placeholder="First Name"
+             style="width: 300px;white-space: nowrap"
+             >    
+      
+          <div class="dang" *ngIf="f.submitted && name.invalid">
+            <small *ngIf="name.errors.required">Product name is required</small>
+            <small *ngIf="name.errors.minlength">
+              *Product name must be at least 2 characters
+            </small>
+            <div *ngIf="name.errors.maxlength">
+                Product name must bespe at most 20 characters
+            </div>
+          </div>
+        </div>
+      
+    <div class="espace"></div>
+       <!-- prix form group -->
+        <div class="form-group">
+                
+          <label for="name" class="coll">Price</label><br>
+          <small mat-dialog-content>*It is necessary to write the price of the product.</small>
+            
+            <input
+            style="width: 300px;white-space: nowrap"
+              type="text"
+              class="form-control"
+              name="price"
+              [(ngModel)]="form.price"
+              required
+              pattern="[0-9 0.0-0.999999999 ]*"
+              placeholder="Product Name"
+              #price="ngModel"
+            />
+          
+            <div class="dang" *ngIf="f.submitted && price.invalid">
+              <small *ngIf="price.errors.required">Price is required</small>
+              <small *ngIf="price.errors.pattern">
+                *price must be number
+              </small>
+      
+            </div>
+          </div>
+
+
+
+
+
+
+         <!-- referenceform group -->    
+          
+          <div class="form-group">
+            <label for="name" class="coll">Reference</label><br>
+          
+        
+            <input
+            style="width: 662px;white-space: nowrap"
+              type="text"
+              class="form-control"
+              name="ref"
+              [(ngModel)]="form.ref"
+              placeholder="Reference"
+              minlength="0"
+              maxlength="100"
+              #ref="ngModel"
+            />
+            <div class="dang" *ngIf="f.submitted && ref.invalid">
+      
+              <small *ngIf="ref.errors.minlength">
+                *Reference must be at least 20 characters
+              </small>
+              <div *ngIf="ref.errors.maxlength">
+                *Reference must be at most 50 characters
+              </div>
+            </div>
+          </div>
+              <!-- name form group -->
+  <div class="form-group">
+          
+    <label for="name" class="coll">Enter the new amount after discount </label><br>
+    <small mat-dialog-content>*The new prix after discount of the product.</small>
+      
+      <input
+      style="width: 300px;white-space: nowrap"
+        type="text"
+        class="form-control"
+        name="newprice"
+        [(ngModel)]="form.newprice"
+        required
+        pattern="[0-9 0.0-0.999999999 ]*"
+        placeholder="New prix"
+        #newprice="ngModel"
+      />
+    
+      <div class="dang" *ngIf="f.submitted && newprice.invalid">
+        <small *ngIf="newprice.errors.required">Price is required</small>
+        <small *ngIf="newprice.errors.pattern">
+          *price must be number
+        </small>
+
+      </div>
+    </div>
+<div class="espace"></div>
+ <!-- prix form group -->
+  <div class="form-group">
+          
+    <label for="name" class="coll">Enter the discount price as a percentage </label><br>
+    <small mat-dialog-content>*In percentage.</small>
+      
+      <input
+      style="width: 300px;white-space: nowrap"
+        type="text"
+        class="form-control"
+        name="p"
+        [(ngModel)]="form.p"
+        required
+        pattern="[0-9 0.0-0.999999999 ]*"
+        placeholder="Product Name"
+        #p="ngModel"
+      />
+    
+      <div class="dang" *ngIf="f.submitted && p.invalid">
+        <small *ngIf="p.errors.required">the discount price as a percentage </small>
+        <small *ngIf="p.errors.pattern">
+          *percentage must be number
+        </small>
+
+      </div>
+    </div>
+         
+            <!-- Description form group -->  
+             <div class="form-group">
+        <label for="description">Description </label><br>
+        <textarea matInput 
+       
+        name="description"
+        [(ngModel)]="form.description"
+        required
+        minlength="30"
+        maxlength="1000"
+        #description="ngModel">
+        
+    </textarea>
+    <mat-hint class="sty">{{description.value?.length || 0}}/1000</mat-hint>
+
+        <div class="dang" *ngIf="f.submitted && description.invalid">
+          <small *ngIf="description.errors.required">Description is required</small>
+          <small *ngIf="description.errors.minlength">
+            *Description must be at least 30 characters
+          </small>
+          <div *ngIf="description.errors.maxlength">
+            Description must be at most 1000 characters
+          </div>
+        </div>
+      </div>
+  
+
+
+
+
+
+
+      </div>
+         <!-- Des Detailed form group -->
+      <label for="Category" class="coll">Detailed Description</label><br>
+      <small mat-dialog-content>Here you can write a detailed description of the product, from title to detail, in front of it, content.....</small>
+    
+      
+        <div class="container-fluid">
+          <form  [formGroup]="addmore">
+        
+               
+                        <div class="row">
+                          <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;"><span class="required-field"></span>Title </th>
+                          
+                                  <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;">Descripition </th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+        
+                                  <td > <input style="width: 180px;height: 50px;white-space: nowrap" id="title{{i}}" formControlName="title" class="form-control"></td>
+
+                                   <td> <textarea  style="width: 180px;height: 50px;white-space: nowrap" id="message{{i}}" formControlName="message" class="form-control reset"></textarea></td>
+
+                                   <td><i (click)="addNewRow()"   class='fas fa-plus' style="font-size:27px; color: rgb(65, 96, 236); cursor: pointer;"></i></td>
+                                   
+                                  <td> <mat-icon *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger" class="space icon">delete_forever</mat-icon></td>
+                           
+                  
+                                </tr>
+                              </tbody>
+                              
+                            </table>
+                        </div>
+        
+                      </div>
+
+
+
+
+
+
+
+
+                     
+                      <!-- </form> -->
+        
+            
+        
+            
+        
+        </form>
+       
+ 
+        </div> 
+           <!-- color form group -->
+        <label  class="coll">Color</label><br>
+        <small>*Here you can choose all available colors for this product.</small>
+      
+       
+        <div class="container-fluid">
+         
+         
+           
+        
+                <div class="row justify-content-center" >
+              
+                  <input  class="form-control"  [(colorPicker)]="color1"
+                  [style.background]="'color1'"
+                  style="width: 280px;white-space: nowrap; text-align: center;"
+                  [cpPosition]="'left'"
+                
+                  [cpAlphaChannel]="'always'"
+                  [cpOutputFormat]="'hex'"
+               
+                  value="click here to change color" >
+                  <div id="cercl"  (click)="onclick(color1)"   [style.background]="color1">  <mat-icon     class="ico">save_alt</mat-icon></div>
+                
+                </div>    
+                
+        
+                  <!-- <div class="col-sm-1">
+                    <button mat-mini-fab color="primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  </div> -->
+        <br> 
+        <label  class="coll " *ngIf="colorList.length!=0">Color selected</label>
+  <div  class="d-flex flex-nowrap bo">
+  <div *ngFor="let i of colorList ; index as colorno">
+    
+
+    
+<div id="cercle"  style="margin:  0px 3px;" [style.background]="i.code"></div>
+<mat-icon  style="margin: 0px 10px;" (click)="deletecolor(colorno)">delete_forever</mat-icon>
+
+
+</div>
+  </div>
+
+
+  <label for="Category" class="coll">Size</label><br>
+  <small mat-dialog-content>Here you can write a detailed description of the product, from title to detail, in front of it, content.....</small>
+
+  
+  <div class="container-fluid">
+    <form  [formGroup]="addmore1">
+    
+         
+                  <div class="row">
+                    <div class="col-sm-12 table-responsive" formArrayName="itemRows1">
+                      <table class="table">
+                       
+                        <tbody >
+                          <tr >   <td *ngFor="let itemrow1 of addmore1.controls.itemRows1['controls']; let i=index"  [formGroupName]="i">    
+                            Size N° {{i+1}}
+                        <input style="width: 70px;height:20px ;" id="size{{i}}" formControlName="size" class="form-control">
+
+                      
+
+                           
+                             <mat-icon *ngIf="addmore1.controls.itemRows1.controls.length > 1" (click)="deleteRow1(i)" class="btn btn-danger" class="space ">delete_forever</mat-icon>
+                              </td> <td>
+                                <mat-icon (click)="addNewRow1()" style="margin-top: 12px;"  class="ico">create</mat-icon></td>
+                         </tr>
+                        </tbody>
+                        
+                      </table>
+                  </div>
+  
+                </div>
+
+
+
+
+
+
+
+
+               
+                <!-- </form> -->
+                <label>         If you want to increase the commercial label of this product</label>   
+                <section class="example-section">
+                  <mat-checkbox class="example-margin"   [(ngModel)]="sale" (change)="check1()">New</mat-checkbox>
+                  <mat-checkbox class="example-margin"  [(ngModel)]="new" (change)="check2()" >Sale</mat-checkbox>
+                </section>
+                
+          
+                  <div class="form-group">
+                    <label>Image Upload  </label>
+                        <input type="file" accept="image/*" (change)="onSelectFile($event)">
+                        <img [src]="imgURL" style="padding: 10px;";height="200" *ngIf="imgURL">
+           
+              </div>
+             
+               
+  </form>
+ 
+    
+  </div> 
+        
+        </div> 
+        <div class="form-group">
+      
+          <button class="btn btn-primary btn-block"  *ngIf="!name.valid || !price.valid || !description.valid || !ref.valid" type="submit"> Save Product</button>
+         
+        
+         
+            
+        </div>
+        <button class="btn btn-primary btn-block" (click)= " addProduct() "   *ngIf="name.valid && price.valid && ref.valid && description.valid" type="submit" > Save Product</button>
+       
+             
+  <button mat-button  class="btn-block" (click)=" onNoClick()" cdkFocusInitial>Close</button>
+      
+      </form>
+     
+  
+       
+      
+    </div>
+  
+  </div>
+
+  
+
+  </div>
+  

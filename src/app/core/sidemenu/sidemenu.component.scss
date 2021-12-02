@@ -1,0 +1,89 @@
+.espace
+
+{  
+    margin: 0px 10px;
+}
+.mat-raised-button
+{width:245px;
+    border-radius: 7px;
+    background: linear-gradient(#e9dfdf, #c1dbfd,#a2aafa,#7f89fa);
+box-shadow: 2px 2px #ffffff;
+font-family: Arial, "Helvetica Neue", Helvetica, Fantasy;
+   font-style: italic;
+   font-size: 12px;
+
+}
+.material-icons{
+    margin: 0;
+}
+.esp{
+    padding:   0px 10px;
+}
+.wordCarousel {
+    font-style: italic;
+    font-size: 29px;
+    font-weight: 100;
+    color: rgb(12, 12, 12);
+    font-family: Serif;
+    color: rgb(26, 24, 24);
+    font-weight: 650;
+    padding: 0 10px;
+    height: 45px;
+    margin-bottom: 45px;
+
+    div {
+        overflow: hidden;
+        position: relative;
+        float: right;
+        height: 65px;
+        padding-top: 10px;
+        margin-top: -10px;
+        li {   font-style: italic;
+            font-family: Serif;
+            color: rgb(32, 30, 30);
+            font-weight: 600;
+            padding: 0 10px;
+            height: 45px;
+            margin-bottom: 45px;
+            display: block;
+            margin-left: 45px;
+        }
+    }
+}
+
+.flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip3 { animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip4 { animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
+@keyframes flip2 {
+    0% { margin-top: -180px; }
+    5% { margin-top: -90px;  }
+    50% { margin-top: -90px; }
+    55% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+
+@keyframes flip3 {
+    0% { margin-top: -270px; }
+    5% { margin-top: -180px; }
+    33% { margin-top: -180px; }
+    38% { margin-top: -90px; }
+    66% { margin-top: -90px; }
+    71% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}
+
+@keyframes flip4 {
+    0% { margin-top: -360px; }
+    5% { margin-top: -270px; }
+    25% { margin-top: -270px; }
+    30% { margin-top: -180px; }
+    50% { margin-top: -180px; }
+    55% { margin-top: -90px; }
+    75% { margin-top: -90px; }
+    80% { margin-top: 0px; }
+    99.99% { margin-top: 0px; }
+    100% { margin-top: -270px; }
+}

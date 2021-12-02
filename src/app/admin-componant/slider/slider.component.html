@@ -1,0 +1,85 @@
+
+ <h3 class="menu-title">
+  Manage your photo slider</h3>
+ 
+     
+      <ngb-carousel [style.width.px]="1400" >
+        <ng-template ngbSlide *ngFor="let s of slides;"  >
+          <div class="picsum-img-wrapper">
+            <img  [style.height.px]="400" [src]="s.image"
+            
+            alt="Angular Carousel 1">
+           
+          </div>
+          <div class="carousel-caption" >
+            <h3 style="color: rgba(255, 88, 22, 0.808);font-size: 80px;">{{s.titre}}</h3>
+            <p  style="color: rgb(255, 255, 255);font-size: 30px;">{{s.description}}.</p>
+          </div>
+        </ng-template>
+      
+      </ngb-carousel>
+  <div class="container-fluid">
+    <form  [formGroup]="addmore">
+  
+         
+                  <div class="row">
+                    <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                      <table class="table">
+                          
+                        <thead>
+                           
+                          <tr>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;"><span class="required-field"></span>Select Image </th>
+                    
+                            <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;"><span class="required-field"></span>Title </th>
+                    
+                            <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;">Descripition </th>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;"><span class="required-field"></span>Width</th>
+                    
+                            <th style="white-space: nowrap;padding-right: 4em;float:center;font-family: 'Courier New', Courier, monospace;">Height</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+               
+                            <td >    <input style="width: 180px;height: 50px;white-space: nowrap" id="image{{i}}" formControlName="image" class="form-control" type="file"  (change)="onSelectFile($event)"></td>
+   
+                            <td > <input style="width: 180px;height: 50px;white-space: nowrap" id="titre{{i}}" formControlName="titre" class="form-control"></td>
+                           
+                             <td> <textarea  style="width: 180px;height: 50px;white-space: nowrap" id="description{i}}" formControlName="description" class="form-control reset"></textarea></td>
+                             <td > <input style="width: 180px;height: 50px;white-space: nowrap" id="width{{i}}" formControlName="width" class="form-control"></td>
+                             <td > <input style="width: 180px;height: 50px;white-space: nowrap" id="height{{i}}" formControlName="height" class="form-control"></td>
+
+                         
+                             <td><i (click)="addNewRow()"   class='fas fa-plus' style="font-size:27px; color: rgb(65, 96, 236); cursor: pointer;"></i></td>
+                             
+                           
+                             <mat-icon *ngIf="addmore.controls.itemRows.controls.length > 1" style="font-size:34px; color: rgb(212, 43, 13); cursor: pointer;" (click)="deleteRow(i)"  class="space icon">delete_forever</mat-icon>   
+                        </tbody>
+                       
+                      </table>
+                  </div>
+  
+                </div>
+
+                <button type="button" class="btn btn-outline-success" (click)="save()">Save All</button>
+
+
+
+
+       
+              <br>    
+            <br>  <br>  <br> 
+  
+      
+  
+      
+  
+  </form>
+ 
+
+  </div> 
+  <div>
+
+  </div>

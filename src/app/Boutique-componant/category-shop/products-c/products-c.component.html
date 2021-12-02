@@ -1,0 +1,66 @@
+
+
+<div class="row card-deck">
+  <div class="container">
+  
+    <div class="row">
+         
+        
+ 
+      
+   
+  
+
+      
+       
+           <div class="col-md-3 col-sm-6" *ngFor="let order of productOrders; let i = index" >
+              <div class="product-grid4">
+                  <div class="product-image4">
+                      <a href="#">
+                          <img class="pic-1" style="height:250px"  src="{{ order.product.pictureUrl }}">
+                          <img class="pic-2" style="height:250px" src="{{ order.product.pictureUrl }}">
+                      </a>
+                      <ul class="social">
+                          <li><a href="http://localhost:4200/shop/product/{{order.product.id}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                          <li><a href="http://localhost:4200/shop/product/{{order.product.id}}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                      </ul>
+                      <span class="product-new-label" *ngIf="order.product.n">New</span>
+            
+                      <span   class="product-new-label" *ngIf="order.product.s">Sale</span>
+                      <span class="product-discount-label" *ngIf="order.product.p!=0">-{{order.product.p}}%</span>
+                  </div>
+                  <div class="product-content">
+                      <h3    class="title"><a href="#">{{ order.product.name }}</a></h3>
+                      <div class="product-content">
+                        <div class="price"  *ngIf="order.product.p==0">
+                          ${{order.product.price}}
+                       </div>
+                        <div class="price" *ngIf="order.product.p!=0">
+                          ${{order.product.newprice}}
+                          <span>${{order.product.price}}</span>
+                      </div>
+                      <div class="row" *ngIf="currentUser">
+                        <div class="col-5 padding-0" *ngIf="!isProductSelected(order.product)" style="margin-left: 15px">
+                          <input type="number" min="0" max="10" class="form-control" [(ngModel)]="order.quantity" />
+                        </div>
+                        <div class="col-5 padding-0" *ngIf="!isProductSelected(order.product)">
+                          <button class="btn btn-primary" (click)="addToCart(order)" [disabled]="order.quantity <= 0">
+                            Puy Now
+                          </button>
+                        </div>
+                        <div class="col-12" *ngIf="isProductSelected(order.product)">
+                          <button class="btn btn-danger btn-block active" (click)="removeFromCart(order)">
+                            Remove From Cart
+                          </button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>   </div>
+
+</div>
+   
+    
+
